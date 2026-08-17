@@ -6,13 +6,14 @@
   const errorText = document.querySelector("#contactErrorText");
 
   async function submit(payload) {
-    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) throw new Error("Supabase 尚未設定。");
+    if (!cfg.SUPABASE_URL || !cfg.SUPABASE_PUBLISHABLE_KEY) {
+      throw new Error("Supabase 尚未設定。請先填寫 config.js 的 Project URL 與 Publishable key。");
+    }
     const url = `${cfg.SUPABASE_URL}/rest/v1/${cfg.CONTACTS_TABLE || "survey_contacts"}`;
     const res = await fetch(url, {
       method:"POST",
       headers:{
-        apikey:cfg.SUPABASE_ANON_KEY,
-        Authorization:`Bearer ${cfg.SUPABASE_ANON_KEY}`,
+        apikey:cfg.SUPABASE_PUBLISHABLE_KEY,
         "Content-Type":"application/json",
         Prefer:"return=minimal"
       },
