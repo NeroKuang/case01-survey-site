@@ -1,9 +1,10 @@
-// 請將這份檔案中的值替換成你的 Supabase Project 設定。
-// Project URL: Supabase Dashboard → Settings → API
-// anon key: Supabase Dashboard → Settings → API
+// Case 01 Survey Site / Supabase client configuration
+// Project URL: Supabase Dashboard → Connect，或 Integrations → Data API
+// Publishable key: Supabase Dashboard → Settings → API Keys
+// 前端請使用 sb_publishable_...，不要放 sb_secret_... / service_role。
 window.SURVEY_CONFIG = {
   SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_PUBLISHABLE_KEY: "",
   RESPONSES_TABLE: "survey_responses",
   CONTACTS_TABLE: "survey_contacts"
 };
